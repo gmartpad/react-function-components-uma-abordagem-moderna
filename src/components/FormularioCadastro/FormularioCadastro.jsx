@@ -1,8 +1,10 @@
-import React from 'react';
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import React, { useState } from 'react';
+import { Button, TextField, Switch, FormControlLabel } from "@material-ui/core";
 
 function FormularioCadastro(){
+
+    const [promocoes, setPromocoes] = useState(false);
+    const [novidades, setNovidades] = useState(false)
 
     return(
         <form>
@@ -31,11 +33,15 @@ function FormularioCadastro(){
                 margin="normal"
             />
 
-            <label for="promocoes">Promoções</label>
-            <input id="promocoes" type="checkbox"/>
+            <FormControlLabel
+                control={<Switch name="promocoes" checked={promocoes} onClick={() => setPromocoes(!promocoes)}/>}
+                label="Promoções"
+            />
 
-            <label for="novidades">Novidades</label>
-            <input id="novidades" type="checkbox"/>
+            <FormControlLabel
+                control={<Switch name="novidades" checked={novidades} onClick={() => setNovidades(!novidades)}/>}
+                label="Novidades"
+            />
 
             <Button 
                 type="submit"
