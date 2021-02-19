@@ -12,6 +12,7 @@ function FormularioCadastro(){
                 label="Nome" 
                 variant="outlined"
                 fullWidth
+                margin="normal"
             />
 
             <TextField
@@ -19,6 +20,7 @@ function FormularioCadastro(){
                 label="Sobrenome"
                 variant="outlined"
                 fullWidth
+                margin="normal"
             />
 
             <TextField
@@ -26,6 +28,7 @@ function FormularioCadastro(){
                 label="CPF"
                 variant="outlined"
                 fullWidth
+                margin="normal"
             />
 
             <label for="promocoes">Promoções</label>
