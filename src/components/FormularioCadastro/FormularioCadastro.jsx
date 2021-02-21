@@ -6,10 +6,21 @@ function FormularioCadastro(){
     const [promocoes, setPromocoes] = useState(false);
     const [novidades, setNovidades] = useState(false)
 
+    const [nome, setNome] = useState("");
+    const [sobrenome, setSobrenome] = useState("");
+    const [cpf, setCPF] = useState("")
+
     return(
         <form>
 
             <TextField 
+                value={nome}
+                onChange={e=>{
+                    // if(e.target.value.length > 3){
+                        setNome(e.target.value.substring(0,3))
+                    // }
+                
+                }}
                 id="nome" 
                 label="Nome" 
                 variant="outlined"
@@ -18,6 +29,8 @@ function FormularioCadastro(){
             />
 
             <TextField
+                value={sobrenome}
+                onChange={e=>setSobrenome(e.target.value)}
                 id="sobrenome"
                 label="Sobrenome"
                 variant="outlined"
@@ -26,6 +39,8 @@ function FormularioCadastro(){
             />
 
             <TextField
+                nome={cpf}
+                onChange={e=>setCPF(e.target.value)}
                 id="cpf"
                 label="CPF"
                 variant="outlined"
