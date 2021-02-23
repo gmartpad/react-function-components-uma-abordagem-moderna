@@ -3,8 +3,8 @@ import { Button, TextField, Switch, FormControlLabel } from "@material-ui/core";
 
 function FormularioCadastro(){
 
-    const [promocoes, setPromocoes] = useState(false);
-    const [novidades, setNovidades] = useState(false)
+    const [promocoes, setPromocoes] = useState(true);
+    const [novidades, setNovidades] = useState(true)
 
     const [nome, setNome] = useState("");
     const [sobrenome, setSobrenome] = useState("");
@@ -15,12 +15,7 @@ function FormularioCadastro(){
 
             <TextField 
                 value={nome}
-                onChange={e=>{
-                    // if(e.target.value.length > 3){
-                        setNome(e.target.value.substring(0,3))
-                    // }
-                
-                }}
+                onChange={e=>setNome(e.target.value)}
                 id="nome" 
                 label="Nome" 
                 variant="outlined"
@@ -49,12 +44,26 @@ function FormularioCadastro(){
             />
 
             <FormControlLabel
-                control={<Switch name="promocoes" checked={promocoes} onClick={() => setPromocoes(!promocoes)}/>}
+                control={
+                    <Switch 
+                        name="promocoes" 
+                        checked={promocoes}
+                        defaultChecked={promocoes} 
+                        onChange={e=>setPromocoes(e.target.checked)}
+                    />
+                }
                 label="Promoções"
             />
 
             <FormControlLabel
-                control={<Switch name="novidades" checked={novidades} onClick={() => setNovidades(!novidades)}/>}
+                control={
+                    <Switch 
+                        name="novidades"
+                        checked={novidades} 
+                        defaultChecked={novidades} 
+                        onChange={e=>setNovidades(e.target.checked)}
+                    />
+                }
                 label="Novidades"
             />
 
